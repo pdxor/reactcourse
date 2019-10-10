@@ -1,20 +1,18 @@
-//jsx
-const title = <h1>My First React Element!</h1>;
-
-//<h1 id="main-title" title="This is a title">My first Reacgt Element!</h1>
-
-const desc = <p>I just learned how to create a Reacte Element and rendered to the DOM.</p>;
 
 
-const header = React.createElement(
-	'header',
-	null,
-	title,
-	desc
+//react component use capitol as to differentiate from html markup
+const Header = () => (
+		<header>
+			<h1>Scoreboard</h1>
+			<span className="stats">Players: 1</span>
+		</header>
 );
 
+
+
+
 ReactDOM.render(
-	header,
+	<Header />,
 	document.getElementById('root')
 
 );
