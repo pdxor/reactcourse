@@ -34,7 +34,7 @@ const Counter = () =>  {
 const App = () => {
 	return(
 		<div className="scoreboard">
-			<Header />
+			<Header title="Scoreboard" totalPlayers={1}/>
 
 			{/* Player's list */}
 			<Player />
