@@ -1,11 +1,12 @@
 
 
 //react component use capitol as to differentiate from html markup
-const Header = () =>  {
+const Header = (props) =>  {
+	console.log(props);
 	return (
 		<header>
-			<h1>Scoreboard</h1>
-			<span className="stats"> <Timer /></span>
+			<h1>{ props.title }</h1>
+			<span className="stats"> {props.totalPlayers(5)}</span>
 		</header>
 	);
 }
@@ -34,7 +35,7 @@ const Counter = () =>  {
 const App = () => {
 	return(
 		<div className="scoreboard">
-			<Header title="Scoreboard" totalPlayers={1}/>
+			<Header title="My Scoreboard" totalPlayers={ n => n + 2}/>
 
 			{/* Player's list */}
 			<Player />
