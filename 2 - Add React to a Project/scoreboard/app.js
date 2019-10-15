@@ -5,7 +5,7 @@ const Header = () =>  {
 	return (
 		<header>
 			<h1>Scoreboard</h1>
-			<span className="stats">Players: 1</span>
+			<span className="stats"> <Timer /></span>
 		</header>
 	);
 }
@@ -41,7 +41,39 @@ const App = () => {
 		</div>
 		);
 }
+class Timer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { seconds: 0 };
+  }
 
+  tick() {
+    this.setState(state => ({
+      seconds: state.seconds + 1
+    }));
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  render() {
+    return (
+      <div>
+        Seconds: {this.state.seconds}
+      </div>
+    );
+  }
+}
+
+// ReactDOM.render(
+//   <Timer />,
+//   document.getElementById('timer-example')
+// );
 ReactDOM.render(
 	<App />,
 	document.getElementById('root')
